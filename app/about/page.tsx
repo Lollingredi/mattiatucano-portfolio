@@ -3,14 +3,13 @@ import PageHeading from "@/components/PageHeading";
 import AboutContent from "@/components/AboutContent";
 
 export const metadata: Metadata = {
-  title: "About Me — Mattia Tucano",
+  title: "About Me",
   description:
     "Mariam (art name Mattia Tucano) is a storyboard artist, revisionist and 2D paperless animator. BA from NABA University.",
 };
 
-// TODO: replace these with the real Google Drive links
-const CV_VIEW_URL = "https://drive.google.com/drive/folders/your-cv-link";
-const CV_DOWNLOAD_URL = "https://drive.google.com/your-cv-pdf";
+const CV_VIEW_URL = "https://drive.google.com/file/d/1Yf_iutiNi2lwzK3XL4ZZHZMi7bS4HMFE/view?usp=sharing";
+const CV_DOWNLOAD_URL = "https://drive.google.com/uc?export=download&id=1Yf_iutiNi2lwzK3XL4ZZHZMi7bS4HMFE";
 
 export default function AboutPage() {
   return (

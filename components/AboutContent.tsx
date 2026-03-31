@@ -1,5 +1,7 @@
 "use client";
 
+// NOTE: testo bio leggermente editato rispetto all'originale WordPress.
+// Verificare con Mattia/Mariam se preferisce le formulazioni originali.
 import { motion } from "framer-motion";
 
 const EASE = [0.25, 0.1, 0.25, 1] as const;
@@ -146,7 +148,7 @@ export default function AboutContent({ cvViewUrl, cvDownloadUrl }: Props) {
                 <a href="https://www.instagram.com/mattiatucano" target="_blank" rel="noopener noreferrer" className="hover:opacity-60 transition-opacity">
                   Instagram
                 </a>
-                <a href="https://www.linkedin.com/in/mariam-ugolini" target="_blank" rel="noopener noreferrer" className="hover:opacity-60 transition-opacity">
+                <a href="https://www.linkedin.com/in/mariam-ugolini-b69878253" target="_blank" rel="noopener noreferrer" className="hover:opacity-60 transition-opacity">
                   LinkedIn (Mariam Ugolini)
                 </a>
                 <a href="https://www.youtube.com/@MattiaTucano" target="_blank" rel="noopener noreferrer" className="hover:opacity-60 transition-opacity">

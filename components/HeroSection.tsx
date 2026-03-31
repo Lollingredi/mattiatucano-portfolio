@@ -25,7 +25,7 @@ export default function HeroSection() {
           variants={fade}
           className="font-[800] text-[clamp(3rem,10vw,8rem)] leading-[0.9] tracking-tight text-[#333333]"
         >
-          Mattia
+          Mattia{" "}
           <br />
           Tucano
         </motion.h1>

@@ -20,18 +20,12 @@ export const storyboardProjects: Project[] = [
     description:
       "A thesis short film, its drama centers around a girl trapped inside of her own nightmare train. Done alongside the precious help and contribution of Twisha Vijay Achari.",
     images: [
-      { src: "/images/storyboards/img_0850.jpg", alt: "The Next Stop – storyboard panel 1" },
-      { src: "/images/storyboards/img_0851.jpg", alt: "The Next Stop – storyboard panel 2" },
-      { src: "/images/storyboards/img_0867.jpg", alt: "The Next Stop – storyboard panel 3" },
-      { src: "/images/storyboards/img_0868.jpg", alt: "The Next Stop – storyboard panel 4" },
-      { src: "/images/storyboards/img_0869.jpg", alt: "The Next Stop – storyboard panel 5" },
-      { src: "/images/storyboards/img_0870.jpg", alt: "The Next Stop – storyboard panel 6" },
-      { src: "/images/storyboards/img_0871.jpg", alt: "The Next Stop – storyboard panel 7" },
-      { src: "/images/storyboards/img_0926-1.jpg", alt: "The Next Stop – exploration 1" },
-      { src: "/images/storyboards/img_0929-1.jpg", alt: "The Next Stop – exploration 2" },
-      { src: "/images/storyboards/img_0930-1.jpg", alt: "The Next Stop – exploration 3" },
-      { src: "/images/storyboards/img_0931-copia-1.jpg", alt: "The Next Stop – exploration 4" },
-      { src: "/images/storyboards/img_0985-copia-1.jpg", alt: "The Next Stop – exploration 5" },
+      { src: "/images/storyboards/screenshot-2025-05-07-alle-13.57.06.png", alt: "The Next Stop – panel 1" },
+      { src: "/images/storyboards/opera_senza_titolo.jpg", alt: "The Next Stop – panel 2" },
+      { src: "/images/storyboards/opera_senza_titolo-copia-6.jpg", alt: "The Next Stop – panel 3" },
+      { src: "/images/storyboards/opera_senza_titolo-copia-3.jpg", alt: "The Next Stop – panel 4" },
+      { src: "/images/storyboards/opera_senza_titolo-copia-5.jpg", alt: "The Next Stop – panel 5" },
+      { src: "/images/storyboards/opera_senza_titolo-7.png", alt: "The Next Stop – panel 6" },
     ],
   },
   {
@@ -40,14 +34,19 @@ export const storyboardProjects: Project[] = [
     description:
       "A retelling of the conclusion of the myth of Ulysses and Polyphemus from the Odyssey. Ulysses is shown as an escaping mermaid and Polyphemus as a doubly blinded pirate.",
     images: [
-      { src: "/images/storyboards/opera_senza_titolo.jpg", alt: "Ulysses and Polyphemus – panel 1" },
-      { src: "/images/storyboards/opera_senza_titolo-copia-3.jpg", alt: "Ulysses and Polyphemus – panel 2" },
-      { src: "/images/storyboards/opera_senza_titolo-copia-5.jpg", alt: "Ulysses and Polyphemus – panel 3" },
-      { src: "/images/storyboards/opera_senza_titolo-copia-6.jpg", alt: "Ulysses and Polyphemus – panel 4" },
-      { src: "/images/storyboards/opera_senza_titolo-7.png", alt: "Ulysses and Polyphemus – panel 5" },
-      { src: "/images/storyboards/screenshot-2025-05-07-alle-13.57.06.png", alt: "Ulysses and Polyphemus – exploration 1" },
-      { src: "/images/storyboards/screenshot-2025-05-07-alle-13.59.29.png", alt: "Ulysses and Polyphemus – exploration 2" },
-      { src: "/images/storyboards/screenshot-2025-05-07-alle-14.19.43.png", alt: "Ulysses and Polyphemus – exploration 3" },
+      { src: "/images/storyboards/screenshot-2025-05-07-alle-13.59.29.png", alt: "Ulysses and Polyphemus – panel 1" },
+      { src: "/images/storyboards/img_0867.jpg", alt: "Ulysses and Polyphemus – panel 2" },
+      { src: "/images/storyboards/img_0868.jpg", alt: "Ulysses and Polyphemus – panel 3" },
+      { src: "/images/storyboards/img_0869.jpg", alt: "Ulysses and Polyphemus – panel 4" },
+      { src: "/images/storyboards/img_0870.jpg", alt: "Ulysses and Polyphemus – panel 5" },
+      { src: "/images/storyboards/img_0871.jpg", alt: "Ulysses and Polyphemus – panel 6" },
+      { src: "/images/storyboards/img_0851.jpg", alt: "Ulysses and Polyphemus – panel 7" },
+      { src: "/images/storyboards/img_0850.jpg", alt: "Ulysses and Polyphemus – panel 8" },
+      { src: "/images/storyboards/img_0926-1.jpg", alt: "Ulysses and Polyphemus – exploration 1" },
+      { src: "/images/storyboards/img_0985-copia-1.jpg", alt: "Ulysses and Polyphemus – exploration 2" },
+      { src: "/images/storyboards/img_0930-1.jpg", alt: "Ulysses and Polyphemus – exploration 3" },
+      { src: "/images/storyboards/img_0929-1.jpg", alt: "Ulysses and Polyphemus – exploration 4" },
+      { src: "/images/storyboards/img_0931-copia-1.jpg", alt: "Ulysses and Polyphemus – exploration 5" },
     ],
   },
   {
@@ -55,7 +54,9 @@ export const storyboardProjects: Project[] = [
     title: "Mad Scientist (Comedy)",
     description:
       "A short gag including a small but smart kitty and a dangerous invention.",
-    images: [],
+    images: [
+      { src: "/images/storyboards/screenshot-2025-05-07-alle-14.19.43.png", alt: "Mad Scientist – panel 1" },
+    ],
   },
 ];
 
@@ -194,18 +195,19 @@ export const backgroundProjects: Project[] = [
 // ILLUSTRATIONS
 // ---------------------------------------------------------------------------
 export const illustrationImages: GalleryImage[] = [
-  { src: "/images/illustrations/img_2146.png", alt: "Illustration 1" },
+  { src: "/images/illustrations/img_2806.png", alt: "Illustration 1" },
   { src: "/images/illustrations/img_2422.jpg", alt: "Illustration 2" },
   { src: "/images/illustrations/img_2428.png", alt: "Illustration 3" },
-  { src: "/images/illustrations/img_2485.jpg", alt: "Illustration 4" },
-  { src: "/images/illustrations/img_2806.png", alt: "Illustration 5" },
-  { src: "/images/illustrations/img_2865.jpg", alt: "Illustration 6" },
-  { src: "/images/illustrations/img_2879.jpg", alt: "Illustration 7" },
-  { src: "/images/illustrations/img_2960-2.jpg", alt: "Illustration 8" },
-  { src: "/images/illustrations/img_2968-2.jpg", alt: "Illustration 9" },
-  { src: "/images/illustrations/img_3417.jpg", alt: "Illustration 10" },
-  { src: "/images/illustrations/img_9506.jpg", alt: "Illustration 11" },
-  { src: "/images/illustrations/opera_senza_titolo-6.jpg", alt: "Illustration 12" },
+  { src: "/images/illustrations/img_2865.jpg", alt: "Illustration 4" },
+  { src: "/images/illustrations/img_2879.jpg", alt: "Illustration 5" },
+  { src: "/images/illustrations/img_2146.png", alt: "Illustration 6" },
+  { src: "/images/illustrations/opera_senza_titolo-6.jpg", alt: "Illustration 7" },
+  { src: "/images/illustrations/img_2968-2.jpg", alt: "Illustration 8" },
+  { src: "/images/illustrations/img_3417.jpg", alt: "Illustration 9" },
+  { src: "/images/illustrations/img_2402.png", alt: "Illustration 10" },
+  { src: "/images/illustrations/img_2485.jpg", alt: "Illustration 11" },
+  { src: "/images/illustrations/img_2960-2.jpg", alt: "Illustration 12" },
+  { src: "/images/illustrations/img_9506.jpg", alt: "Illustration 13" },
 ];
 
 // ---------------------------------------------------------------------------

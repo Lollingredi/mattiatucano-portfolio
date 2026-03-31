@@ -4,7 +4,7 @@ import PageHeading from "@/components/PageHeading";
 import { backgroundProjects } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Backgrounds — Mattia Tucano",
+  title: "Backgrounds",
   description: "Background paintings and studies by Mattia Tucano.",
 };
 

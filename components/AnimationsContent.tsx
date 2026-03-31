@@ -55,8 +55,7 @@ export default function AnimationsContent() {
                   </svg>
                 </div>
                 <p className="text-xs opacity-30 max-w-xs">
-                  Video coming soon — add the YouTube ID to{" "}
-                  <code className="font-mono">components/AnimationsContent.tsx</code>
+                  Animation reel coming soon.
                 </p>
               </div>
             )}

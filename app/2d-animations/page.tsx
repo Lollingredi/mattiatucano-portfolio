@@ -3,7 +3,7 @@ import PageHeading from "@/components/PageHeading";
 import AnimationsContent from "@/components/AnimationsContent";
 
 export const metadata: Metadata = {
-  title: "2D Animations — Mattia Tucano",
+  title: "2D Animations",
   description:
     "2D animation work by Mattia Tucano, including the animation trial for her thesis film The Next Stop.",
 };

@@ -3,7 +3,7 @@ import PageHeading from "@/components/PageHeading";
 import IllustrationsGallery from "@/components/IllustrationsGallery";
 
 export const metadata: Metadata = {
-  title: "Illustrations — Mattia Tucano",
+  title: "Illustrations",
   description: "Illustrations by Mattia Tucano.",
 };
 

@@ -68,7 +68,7 @@ export default function Header() {
               </svg>
             </a>
             <a
-              href="https://www.linkedin.com/in/mariam-ugolini"
+              href="https://www.linkedin.com/in/mariam-ugolini-b69878253"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"

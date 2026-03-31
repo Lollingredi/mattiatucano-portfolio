@@ -4,7 +4,7 @@ import PageHeading from "@/components/PageHeading";
 import { characterDesignProjects } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Character Design — Mattia Tucano",
+  title: "Character Design",
   description: "Character design and visual development work by Mattia Tucano.",
 };
 

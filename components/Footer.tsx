@@ -15,7 +15,7 @@ export default function Footer() {
             INSTAGRAM
           </a>
           <a
-            href="https://www.linkedin.com/in/mariam-ugolini"
+            href="https://www.linkedin.com/in/mariam-ugolini-b69878253"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[11px] font-[800] tracking-widest opacity-40 hover:opacity-100 transition-opacity"

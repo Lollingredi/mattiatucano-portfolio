@@ -4,7 +4,7 @@ import PageHeading from "@/components/PageHeading";
 import { storyboardProjects } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Storyboards — Mattia Tucano",
+  title: "Storyboards",
   description:
     "Storyboard projects by Mattia Tucano, including The Next Stop and Ulysses and Polyphemus.",
 };
