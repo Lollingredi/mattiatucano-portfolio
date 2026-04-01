@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import ProjectGallery from "@/components/ProjectGallery";
 import PageHeading from "@/components/PageHeading";
-import { backgroundProjects } from "@/lib/content";
+import BackgroundsContent from "@/components/BackgroundsContent";
 
 export const metadata: Metadata = {
   title: "Backgrounds",
@@ -12,7 +11,7 @@ export default function BackgroundsPage() {
   return (
     <div className="max-w-7xl mx-auto px-5 py-16">
       <PageHeading>Backgrounds</PageHeading>
-      <ProjectGallery projects={backgroundProjects} />
+      <BackgroundsContent />
     </div>
   );
 }

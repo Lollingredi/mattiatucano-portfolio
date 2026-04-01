@@ -23,3 +23,35 @@ body {
 .lightbox-open {
   overflow: hidden;
 }
+
+/* Dark mode */
+.dark body,
+.dark {
+  background-color: #1a1a1a;
+  color: #e5e5e5;
+}
+
+.dark .bg-white {
+  background-color: #1a1a1a;
+}
+
+.dark .text-\[\#333333\] {
+  color: #e5e5e5;
+}
+
+.dark .border-neutral-100 {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark .bg-neutral-100 {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.dark .bg-neutral-50 {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+/* Fade hint gradient in dark mode */
+.dark .from-white {
+  --tw-gradient-from: #1a1a1a;
+}

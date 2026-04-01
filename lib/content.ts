@@ -8,6 +8,7 @@ export interface Project {
   title: string;
   description?: string;
   images: GalleryImage[];
+  speakerDeckId?: string;
 }
 
 // ---------------------------------------------------------------------------
@@ -19,6 +20,7 @@ export const storyboardProjects: Project[] = [
     title: "The Next Stop (Action-Drama)",
     description:
       "A thesis short film, its drama centers around a girl trapped inside of her own nightmare train. Done alongside the precious help and contribution of Twisha Vijay Achari.",
+    speakerDeckId: "515d33db4dd04715bf4c900e273a5ebd",
     images: [
       { src: "/images/storyboards/screenshot-2025-05-07-alle-13.57.06.png", alt: "The Next Stop – panel 1" },
       { src: "/images/storyboards/opera_senza_titolo.jpg", alt: "The Next Stop – panel 2" },
@@ -33,6 +35,7 @@ export const storyboardProjects: Project[] = [
     title: "Ulysses and Polyphemus (Comedy)",
     description:
       "A retelling of the conclusion of the myth of Ulysses and Polyphemus from the Odyssey. Ulysses is shown as an escaping mermaid and Polyphemus as a doubly blinded pirate.",
+    speakerDeckId: "8c28ff7eef9d4c62941ba8e2352c565d",
     images: [
       { src: "/images/storyboards/screenshot-2025-05-07-alle-13.59.29.png", alt: "Ulysses and Polyphemus – panel 1" },
       { src: "/images/storyboards/img_0867.jpg", alt: "Ulysses and Polyphemus – panel 2" },
@@ -54,6 +57,7 @@ export const storyboardProjects: Project[] = [
     title: "Mad Scientist (Comedy)",
     description:
       "A short gag including a small but smart kitty and a dangerous invention.",
+    speakerDeckId: "0743cd9c8eec4303bf1ab0c7e47126a2",
     images: [
       { src: "/images/storyboards/screenshot-2025-05-07-alle-14.19.43.png", alt: "Mad Scientist – panel 1" },
     ],
@@ -147,25 +151,32 @@ export const characterDesignProjects: Project[] = [
     ],
   },
   {
-    id: "bard-and-magician",
+    id: "bard-school",
     title: "Bard and Magician — School Assignments",
     description:
       "Character developments from one of my school assignments. A cheery and flamboyant bard, and a strange and monstrous magician.",
     images: [
-      { src: "/images/character-design/img_1063.jpg", alt: "Bard/Magician – design 1" },
-      { src: "/images/character-design/img_0679.jpg", alt: "Bard/Magician – design 2" },
-      { src: "/images/character-design/img_0677.jpg", alt: "Bard/Magician – design 3" },
-      { src: "/images/character-design/img_0678.jpg", alt: "Bard/Magician – design 4" },
-      { src: "/images/character-design/img_8588.jpg", alt: "Bard/Magician – design 5" },
-      { src: "/images/character-design/img_8587.jpg", alt: "Bard/Magician – design 6" },
-      { src: "/images/character-design/img_8586.jpg", alt: "Bard/Magician – design 7" },
-      { src: "/images/character-design/img_0203.jpg", alt: "Bard/Magician – design 8" },
-      { src: "/images/character-design/img_0681.jpg", alt: "Bard/Magician – design 9" },
-      { src: "/images/character-design/img_0254.jpg", alt: "Bard/Magician – design 10" },
-      { src: "/images/character-design/img_0259.jpg", alt: "Bard/Magician – design 11" },
-      { src: "/images/character-design/img_0256.jpg", alt: "Bard/Magician – design 12" },
-      { src: "/images/character-design/img_0258.jpg", alt: "Bard/Magician – design 13" },
-      { src: "/images/character-design/img_0257.jpg", alt: "Bard/Magician – design 14" },
+      { src: "/images/character-design/img_1063.jpg", alt: "Bard – design 1" },
+      { src: "/images/character-design/img_0679.jpg", alt: "Bard – design 2" },
+      { src: "/images/character-design/img_0677.jpg", alt: "Bard – design 3" },
+      { src: "/images/character-design/img_0678.jpg", alt: "Bard – design 4" },
+      { src: "/images/character-design/img_8588.jpg", alt: "Bard – design 5" },
+      { src: "/images/character-design/img_8587.jpg", alt: "Bard – design 6" },
+      { src: "/images/character-design/img_8586.jpg", alt: "Bard – design 7" },
+    ],
+  },
+  {
+    id: "magician-school",
+    title: "",
+    description: undefined,
+    images: [
+      { src: "/images/character-design/img_0203.jpg", alt: "Magician – design 1" },
+      { src: "/images/character-design/img_0681.jpg", alt: "Magician – design 2" },
+      { src: "/images/character-design/img_0254.jpg", alt: "Magician – design 3" },
+      { src: "/images/character-design/img_0259.jpg", alt: "Magician – design 4" },
+      { src: "/images/character-design/img_0256.jpg", alt: "Magician – design 5" },
+      { src: "/images/character-design/img_0258.jpg", alt: "Magician – design 6" },
+      { src: "/images/character-design/img_0257.jpg", alt: "Magician – design 7" },
     ],
   },
 ];
@@ -179,14 +190,42 @@ export const backgroundProjects: Project[] = [
     title: "Tent Study",
     description: undefined,
     images: [
-      { src: "/images/backgrounds/img_3476-1.jpg", alt: "Tent study – background 1" },
-      { src: "/images/backgrounds/img_0206.jpg", alt: "Tent study – background 2" },
-      { src: "/images/backgrounds/img_0207-1.jpg", alt: "Tent study – background 3" },
-      { src: "/images/backgrounds/img_0208.jpg", alt: "Tent study – background 4" },
-      { src: "/images/backgrounds/img_3465.jpg", alt: "Tent study – background 5" },
-      { src: "/images/backgrounds/img_3466-1.jpg", alt: "Tent study – background 6" },
-      { src: "/images/backgrounds/img_1568.jpg", alt: "Tent study – background 7" },
-      { src: "/images/backgrounds/img_2402.png", alt: "Tent study – background 8" },
+      { src: "/images/backgrounds/img_3476-1.jpg", alt: "Tent study" },
+    ],
+  },
+  {
+    id: "bg-studies-1",
+    title: "",
+    description: undefined,
+    images: [
+      { src: "/images/backgrounds/img_0206.jpg", alt: "Background study 1" },
+      { src: "/images/backgrounds/img_0207-1.jpg", alt: "Background study 2" },
+      { src: "/images/backgrounds/img_0208.jpg", alt: "Background study 3" },
+    ],
+  },
+  {
+    id: "bg-studies-2",
+    title: "",
+    description: undefined,
+    images: [
+      { src: "/images/backgrounds/img_3465.jpg", alt: "Background study 4" },
+      { src: "/images/backgrounds/img_3466-1.jpg", alt: "Background study 5" },
+    ],
+  },
+  {
+    id: "bg-study-solo-1",
+    title: "",
+    description: undefined,
+    images: [
+      { src: "/images/backgrounds/img_1568.jpg", alt: "Background study 6" },
+    ],
+  },
+  {
+    id: "bg-study-solo-2",
+    title: "",
+    description: undefined,
+    images: [
+      { src: "/images/backgrounds/img_2402.png", alt: "Background study 7" },
     ],
   },
 ];
@@ -241,7 +280,7 @@ export const homeShowcase = [
   {
     href: "/2d-animations",
     label: "2D ANIMATIONS",
-    src: "/images/home/opera_senza_titolo-98-1.png",
-    alt: "Animation trial for thesis film",
+    src: "/images/storyboards/opera_senza_titolo-7.png",
+    alt: "2D Animation — The Next Stop",
   },
 ];

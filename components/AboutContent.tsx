@@ -3,6 +3,7 @@
 // NOTE: testo bio leggermente editato rispetto all'originale WordPress.
 // Verificare con Mattia/Mariam se preferisce le formulazioni originali.
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const EASE = [0.25, 0.1, 0.25, 1] as const;
 
@@ -29,6 +30,16 @@ export default function AboutContent({ cvViewUrl, cvDownloadUrl }: Props) {
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
       {/* Bio column */}
       <div className="space-y-6">
+        <motion.div {...fadeUp(0)} className="mb-2">
+          <Image
+            src="/images/home/opera_senza_titolo-98-1.png"
+            alt="Mattia Tucano — self portrait"
+            width={120}
+            height={120}
+            className="rounded-full object-cover w-[120px] h-[120px]"
+            priority
+          />
+        </motion.div>
         {[
           <>
             Hellos, and welcome to my about page. My wonderful name is{" "}
@@ -66,7 +77,7 @@ export default function AboutContent({ cvViewUrl, cvDownloadUrl }: Props) {
           <motion.p
             key={i}
             {...fadeUp(i * 0.1)}
-            className="text-base leading-relaxed text-[#333333]"
+            className="text-base leading-relaxed text-black dark:text-[#e5e5e5]"
           >
             {content}
           </motion.p>
@@ -104,7 +115,7 @@ export default function AboutContent({ cvViewUrl, cvDownloadUrl }: Props) {
       </div>
 
       {/* Info sidebar */}
-      <div className="space-y-8 lg:border-l lg:border-neutral-100 lg:pl-16">
+      <div className="space-y-8 lg:border-l lg:border-[#333333]/15 dark:lg:border-white/15 lg:pl-16">
         {[
           {
             label: "Roles",
@@ -145,8 +156,8 @@ export default function AboutContent({ cvViewUrl, cvDownloadUrl }: Props) {
             label: "Social",
             content: (
               <div className="flex flex-col gap-2 text-sm">
-                <a href="https://www.instagram.com/mattiatucano" target="_blank" rel="noopener noreferrer" className="hover:opacity-60 transition-opacity">
-                  Instagram
+                <a href="https://www.instagram.com/mattia_tucan0" target="_blank" rel="noopener noreferrer" className="hover:opacity-60 transition-opacity">
+                  Instagram (@mattia_tucan0)
                 </a>
                 <a href="https://www.linkedin.com/in/mariam-ugolini-b69878253" target="_blank" rel="noopener noreferrer" className="hover:opacity-60 transition-opacity">
                   LinkedIn (Mariam Ugolini)
@@ -159,7 +170,7 @@ export default function AboutContent({ cvViewUrl, cvDownloadUrl }: Props) {
           },
         ].map(({ label, content }) => (
           <motion.div key={label} {...infoItem}>
-            <h2 className="font-[800] text-[10px] tracking-widest uppercase text-[#333333]/40 mb-3">
+            <h2 className="font-[800] text-[10px] tracking-widest uppercase text-[#333333]/60 dark:text-white/50 mb-3">
               {label}
             </h2>
             {content}

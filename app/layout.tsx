@@ -76,7 +76,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${figtree.variable} h-full`}>
+    <html lang="en" className={`${figtree.variable} h-full`} suppressHydrationWarning>
       <body className="min-h-full flex flex-col text-[#333333] bg-white">
         <Header />
         <main className="flex-1">
