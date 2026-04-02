@@ -24,29 +24,36 @@ interface Props {
 
 const EASE = [0.25, 0.1, 0.25, 1] as const;
 
-function useHorizontalScroll() {
+function ScrollableCarousel({ children }: { children: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
+    let snapTimeout: ReturnType<typeof setTimeout>;
+
     const onWheel = (e: WheelEvent) => {
-      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-        e.preventDefault();
-        el.scrollLeft += e.deltaY;
-      }
+      if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+      e.preventDefault();
+
+      // Disable snap during wheel scroll so it doesn't fight
+      el.style.scrollSnapType = "none";
+      el.scrollLeft += e.deltaY;
+
+      // Re-enable snap after scrolling stops (200ms debounce)
+      clearTimeout(snapTimeout);
+      snapTimeout = setTimeout(() => {
+        el.style.scrollSnapType = "";
+      }, 200);
     };
 
-    el.addEventListener("wheel", onWheel, { passive: false, capture: false });
-    return () => el.removeEventListener("wheel", onWheel);
+    el.addEventListener("wheel", onWheel, { passive: false });
+    return () => {
+      el.removeEventListener("wheel", onWheel);
+      clearTimeout(snapTimeout);
+    };
   }, []);
-
-  return ref;
-}
-
-function ScrollableCarousel({ children }: { children: React.ReactNode }) {
-  const ref = useHorizontalScroll();
 
   return (
     <div
