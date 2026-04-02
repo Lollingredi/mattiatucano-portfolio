@@ -55,3 +55,13 @@ body {
 .dark .from-white {
   --tw-gradient-from: #1a1a1a;
 }
+
+/* About page — inline-style overrides for dark mode */
+.about-bio { color: #000000; }
+.dark .about-bio { color: #ffffff; }
+
+.about-label { color: rgba(51, 51, 51, 0.55); }
+.dark .about-label { color: rgba(255, 255, 255, 0.70); }
+
+.about-sidebar { border-color: rgba(51, 51, 51, 0.15); }
+.dark .about-sidebar { border-color: rgba(255, 255, 255, 0.15); }

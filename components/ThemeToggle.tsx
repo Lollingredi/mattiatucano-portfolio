@@ -3,14 +3,11 @@
 import { useState, useEffect } from "react";
 
 export default function ThemeToggle() {
+  // Read initial state from DOM (already set by the blocking script in layout.tsx)
   const [dark, setDark] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem("theme");
-    if (saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-      setDark(true);
-      document.documentElement.classList.add("dark");
-    }
+    setDark(document.documentElement.classList.contains("dark"));
   }, []);
 
   const toggle = () => {

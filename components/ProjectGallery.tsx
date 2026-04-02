@@ -26,6 +26,8 @@ const EASE = [0.25, 0.1, 0.25, 1] as const;
 
 function ScrollableCarousel({ children }: { children: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
+  const [atStart, setAtStart] = useState(true);
+  const [atEnd, setAtEnd] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
@@ -33,34 +35,62 @@ function ScrollableCarousel({ children }: { children: React.ReactNode }) {
 
     let snapTimeout: ReturnType<typeof setTimeout>;
 
+    const updateEdges = () => {
+      const { scrollLeft, scrollWidth, clientWidth } = el;
+      setAtStart(scrollLeft <= 2);
+      setAtEnd(scrollLeft + clientWidth >= scrollWidth - 2);
+    };
+
     const onWheel = (e: WheelEvent) => {
       if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
-      e.preventDefault();
 
-      // Disable snap during wheel scroll so it doesn't fight
+      const { scrollLeft, scrollWidth, clientWidth } = el;
+      const isAtStart = scrollLeft <= 2;
+      const isAtEnd = scrollLeft + clientWidth >= scrollWidth - 2;
+
+      // At edges: don't hijack — let page scroll normally
+      if (isAtStart && e.deltaY < 0) return;
+      if (isAtEnd && e.deltaY > 0) return;
+
+      e.preventDefault();
       el.style.scrollSnapType = "none";
       el.scrollLeft += e.deltaY;
 
-      // Re-enable snap after scrolling stops (200ms debounce)
       clearTimeout(snapTimeout);
       snapTimeout = setTimeout(() => {
         el.style.scrollSnapType = "";
+        updateEdges();
       }, 200);
     };
 
+    updateEdges();
     el.addEventListener("wheel", onWheel, { passive: false });
+    el.addEventListener("scroll", updateEdges, { passive: true });
     return () => {
       el.removeEventListener("wheel", onWheel);
+      el.removeEventListener("scroll", updateEdges);
       clearTimeout(snapTimeout);
     };
   }, []);
 
   return (
-    <div
-      ref={ref}
-      className="flex gap-3 overflow-x-auto pb-2 snap-x snap-mandatory [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-    >
-      {children}
+    <div className="relative">
+      {/* Left fade — visible once user has scrolled past start */}
+      <div
+        className="pointer-events-none absolute left-0 top-0 bottom-2 w-16 z-10 bg-gradient-to-r from-white to-transparent transition-opacity duration-300"
+        style={{ opacity: atStart ? 0 : 1 }}
+      />
+      {/* Right fade — visible while more content exists to the right */}
+      <div
+        className="pointer-events-none absolute right-0 top-0 bottom-2 w-16 z-10 bg-gradient-to-l from-white to-transparent transition-opacity duration-300"
+        style={{ opacity: atEnd ? 0 : 1 }}
+      />
+      <div
+        ref={ref}
+        className="flex gap-3 overflow-x-auto pb-2 snap-x snap-mandatory [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
+        {children}
+      </div>
     </div>
   );
 }
@@ -125,10 +155,7 @@ export default function ProjectGallery({ projects }: Props) {
             )}
 
             {/* Carousel */}
-            <div className="relative">
-              {/* Right fade hint */}
-              <div className="pointer-events-none absolute right-0 top-0 bottom-2 w-16 z-10 bg-gradient-to-l from-white to-transparent" />
-
+            <div>
               <ScrollableCarousel>
                 {project.images.map((img, idx) => (
                   <motion.button

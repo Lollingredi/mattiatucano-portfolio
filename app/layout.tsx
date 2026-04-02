@@ -77,6 +77,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${figtree.variable} h-full`} suppressHydrationWarning>
+      <head>
+        {/* Blocking script: apply dark class before first paint to prevent FOUC */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var s=localStorage.getItem("theme");if(s==="dark"||(s==null&&window.matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.classList.add("dark")}}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col text-[#333333] bg-white">
         <Header />
         <main className="flex-1">
