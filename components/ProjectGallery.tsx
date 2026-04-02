@@ -135,7 +135,7 @@ export default function ProjectGallery({ projects }: Props) {
                     key={idx}
                     onClick={() => openLightbox(project.id, idx)}
                     className="snap-start shrink-0 group relative overflow-hidden bg-neutral-100"
-                    style={{ width: "clamp(220px, 28vw, 360px)", aspectRatio: "4/3" }}
+                    style={{ width: "clamp(220px, 28vw, 360px)", height: "clamp(200px, 26vw, 330px)" }}
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >
@@ -144,7 +144,7 @@ export default function ProjectGallery({ projects }: Props) {
                       alt={img.alt}
                       fill
                       sizes="(max-width: 768px) 70vw, 30vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="object-contain transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
                     />
                     {/* Hover overlay */}
