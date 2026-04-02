@@ -77,7 +77,7 @@ export default function AboutContent({ cvViewUrl, cvDownloadUrl }: Props) {
           <motion.p
             key={i}
             {...fadeUp(i * 0.1)}
-            className="text-base leading-relaxed text-black dark:text-[#e5e5e5]"
+            className="text-base leading-relaxed" style={{ color: "#000000" }}
           >
             {content}
           </motion.p>
@@ -115,7 +115,7 @@ export default function AboutContent({ cvViewUrl, cvDownloadUrl }: Props) {
       </div>
 
       {/* Info sidebar */}
-      <div className="space-y-8 lg:border-l lg:border-[#333333]/15 dark:lg:border-white/15 lg:pl-16">
+      <div className="space-y-8 lg:border-l lg:pl-16" style={{ borderColor: "rgba(51,51,51,0.15)" }}>
         {[
           {
             label: "Roles",
@@ -170,7 +170,7 @@ export default function AboutContent({ cvViewUrl, cvDownloadUrl }: Props) {
           },
         ].map(({ label, content }) => (
           <motion.div key={label} {...infoItem}>
-            <h2 className="font-[800] text-[10px] tracking-widest uppercase text-[#333333]/60 dark:text-white/50 mb-3">
+            <h2 className="font-[800] text-[10px] tracking-widest uppercase mb-3" style={{ color: "rgba(51,51,51,0.55)" }}>
               {label}
             </h2>
             {content}

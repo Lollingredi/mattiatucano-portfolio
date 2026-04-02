@@ -38,7 +38,7 @@ function useHorizontalScroll() {
       }
     };
 
-    el.addEventListener("wheel", onWheel, { passive: false });
+    el.addEventListener("wheel", onWheel, { passive: false, capture: false });
     return () => el.removeEventListener("wheel", onWheel);
   }, []);
 
