@@ -5,6 +5,9 @@ import IllustrationsGallery from "@/components/IllustrationsGallery";
 export const metadata: Metadata = {
   title: "Illustrations",
   description: "Illustrations by Mattia Tucano.",
+  openGraph: {
+    images: [{ url: "/images/illustrations/img_2806.png" }],
+  },
 };
 
 export default function IllustrationsPage() {

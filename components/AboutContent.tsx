@@ -30,13 +30,18 @@ export default function AboutContent({ cvViewUrl, cvDownloadUrl }: Props) {
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
       {/* Bio column */}
       <div className="space-y-6">
-        <motion.div {...fadeUp(0)} className="mb-2">
+        <motion.div
+          {...fadeUp(0)}
+          className="mb-2"
+          whileHover={{ scale: 1.05, rotate: 2 }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        >
           <Image
             src="/images/home/opera_senza_titolo-98-1.png"
             alt="Mattia Tucano — self portrait"
             width={120}
             height={120}
-            className="rounded-full object-cover w-[120px] h-[120px]"
+            className="rounded-full object-cover w-[120px] h-[120px] transition-shadow duration-300 hover:shadow-lg"
             priority
           />
         </motion.div>

@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "2D Animations",
   description:
     "2D animation work by Mattia Tucano, including the animation trial for her thesis film The Next Stop.",
+  openGraph: {
+    images: [{ url: "/images/home/opera_senza_titolo-98-1.png" }],
+  },
 };
 
 export default function AnimationsPage() {

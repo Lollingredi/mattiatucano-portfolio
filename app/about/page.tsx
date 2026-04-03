@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "About Me",
   description:
     "Mariam (art name Mattia Tucano) is a storyboard artist, revisionist and 2D paperless animator. BA from NABA University.",
+  openGraph: {
+    images: [{ url: "/images/home/opera_senza_titolo-98-1.png" }],
+  },
 };
 
 const CV_VIEW_URL = "https://drive.google.com/file/d/1Yf_iutiNi2lwzK3XL4ZZHZMi7bS4HMFE/view?usp=sharing";

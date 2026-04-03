@@ -6,6 +6,9 @@ import { characterDesignProjects } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Character Design",
   description: "Character design and visual development work by Mattia Tucano.",
+  openGraph: {
+    images: [{ url: "/images/character-design/img_1956.png" }],
+  },
 };
 
 export default function CharacterDesignPage() {

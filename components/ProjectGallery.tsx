@@ -171,8 +171,11 @@ export default function ProjectGallery({ projects }: Props) {
                     onClick={() => openLightbox(project.id, idx)}
                     className="snap-start shrink-0 group relative overflow-hidden bg-neutral-100 flex items-center justify-center"
                     style={{ width: "clamp(220px, 28vw, 360px)", height: "clamp(165px, 21vw, 270px)" }}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
                     whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.4, delay: idx * 0.06 }}
                   >
                     <Image
                       src={img.src}

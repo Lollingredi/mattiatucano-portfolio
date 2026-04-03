@@ -5,6 +5,9 @@ import BackgroundsContent from "@/components/BackgroundsContent";
 export const metadata: Metadata = {
   title: "Backgrounds",
   description: "Background paintings and studies by Mattia Tucano.",
+  openGraph: {
+    images: [{ url: "/images/backgrounds/img_3476-1.jpg" }],
+  },
 };
 
 export default function BackgroundsPage() {

@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Storyboards",
   description:
     "Storyboard projects by Mattia Tucano, including The Next Stop and Ulysses and Polyphemus.",
+  openGraph: {
+    images: [{ url: "/images/storyboards/screenshot-2025-05-07-alle-13.57.06.png" }],
+  },
 };
 
 export default function StoryboardsPage() {

@@ -3,7 +3,7 @@ import ThemeToggle from "@/components/ThemeToggle";
 export default function Footer() {
   return (
     <footer className="border-t border-neutral-100 py-8 mt-16">
-      <div className="max-w-7xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-4">
         <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
           <p className="text-[11px] opacity-40 font-[400]">
             © {new Date().getFullYear()} Mattia Tucano. All rights reserved.
@@ -20,7 +20,7 @@ export default function Footer() {
             </a>
           </span>
         </div>
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-6 pt-4 sm:pt-0 border-t sm:border-t-0 border-neutral-100 w-full sm:w-auto justify-center sm:justify-start">
           <a
             href="https://www.instagram.com/mattia_tucan0"
             target="_blank"
