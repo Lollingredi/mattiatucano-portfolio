@@ -76,6 +76,20 @@ export default function Lightbox({ images, index, onClose, onNavigate, goTo }: P
     return () => container.removeEventListener("keydown", handleTab);
   }, [isOpen]);
 
+  // Swipe gesture for mobile
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    touchStart.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+  }, []);
+  const handleTouchEnd = useCallback((e: React.TouchEvent) => {
+    if (!touchStart.current) return;
+    const dx = e.changedTouches[0].clientX - touchStart.current.x;
+    const dy = e.changedTouches[0].clientY - touchStart.current.y;
+    touchStart.current = null;
+    if (Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy)) return;
+    onNavigate(dx < 0 ? 1 : -1);
+  }, [onNavigate]);
+
   const stopProp = useCallback((e: React.MouseEvent) => e.stopPropagation(), []);
 
   return (
@@ -116,9 +130,11 @@ export default function Lightbox({ images, index, onClose, onNavigate, goTo }: P
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.18 }}
-            className="relative w-full max-w-5xl px-12 sm:px-16"
+            className="relative w-full max-w-5xl px-12 sm:px-16 touch-pan-y"
             style={{ maxHeight: "78vh", height: "78vh" }}
             onClick={stopProp}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
           >
             <Image
               src={image.src}

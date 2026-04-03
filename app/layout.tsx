@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageTransitionWrapper from "@/components/PageTransitionWrapper";
+import BackToTop from "@/components/BackToTop";
 
 const figtree = Figtree({
   variable: "--font-figtree",
@@ -90,6 +91,7 @@ export default function RootLayout({
           <PageTransitionWrapper>{children}</PageTransitionWrapper>
         </main>
         <Footer />
+        <BackToTop />
       </body>
     </html>
   );

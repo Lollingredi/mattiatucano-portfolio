@@ -86,3 +86,19 @@ button:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 2px;
 }
+
+/* Image fade-in on load */
+img[data-nimg] {
+  animation: imgFadeIn 0.4s ease-out;
+}
+
+@keyframes imgFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Dark mode: back-to-top button */
+.dark .bg-\[\#333333\] {
+  background-color: #e5e5e5;
+  color: #1a1a1a;
+}

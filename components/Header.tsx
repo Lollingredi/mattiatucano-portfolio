@@ -37,7 +37,9 @@ export default function Header() {
               key={link.href}
               href={link.href}
               className={`text-[11px] font-[800] tracking-widest transition-opacity hover:opacity-70 ${
-                pathname === link.href ? "opacity-100" : "opacity-50"
+                pathname === link.href
+                  ? "opacity-100 underline underline-offset-4 decoration-1"
+                  : "opacity-50"
               }`}
             >
               {link.label}
@@ -134,7 +136,9 @@ export default function Header() {
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
                   className={`text-[11px] font-[800] tracking-widest transition-opacity hover:opacity-70 ${
-                    pathname === link.href ? "opacity-100" : "opacity-50"
+                    pathname === link.href
+                      ? "opacity-100 underline underline-offset-4 decoration-1"
+                      : "opacity-50"
                   }`}
                 >
                   {link.label}
