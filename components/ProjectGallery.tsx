@@ -26,6 +26,16 @@ const EASE = [0.25, 0.1, 0.25, 1] as const;
 
 function ScrollableCarousel({ children }: { children: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
+  const [showLeft, setShowLeft] = useState(false);
+  const [showRight, setShowRight] = useState(true);
+
+  const updateFades = useCallback(() => {
+    const el = ref.current;
+    if (!el) return;
+    const tolerance = 2;
+    setShowLeft(el.scrollLeft > tolerance);
+    setShowRight(el.scrollLeft + el.clientWidth < el.scrollWidth - tolerance);
+  }, []);
 
   useEffect(() => {
     const el = ref.current;
@@ -35,6 +45,15 @@ function ScrollableCarousel({ children }: { children: React.ReactNode }) {
 
     const onWheel = (e: WheelEvent) => {
       if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+
+      const tolerance = 2;
+      const atStart = el.scrollLeft <= tolerance;
+      const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - tolerance;
+
+      // Let the page scroll normally when carousel is at its limits
+      if (atStart && e.deltaY < 0) return;
+      if (atEnd && e.deltaY > 0) return;
+
       e.preventDefault();
 
       // Disable snap during wheel scroll so it doesn't fight
@@ -49,18 +68,37 @@ function ScrollableCarousel({ children }: { children: React.ReactNode }) {
     };
 
     el.addEventListener("wheel", onWheel, { passive: false });
+    el.addEventListener("scroll", updateFades, { passive: true });
+    updateFades();
+
     return () => {
       el.removeEventListener("wheel", onWheel);
+      el.removeEventListener("scroll", updateFades);
       clearTimeout(snapTimeout);
     };
-  }, []);
+  }, [updateFades]);
 
   return (
-    <div
-      ref={ref}
-      className="flex gap-3 overflow-x-auto pb-2 snap-x snap-mandatory [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-    >
-      {children}
+    <div className="relative">
+      {/* Left fade hint */}
+      <div
+        className={`pointer-events-none absolute left-0 top-0 bottom-2 w-16 z-10 bg-gradient-to-r from-white to-transparent transition-opacity duration-300 ${
+          showLeft ? "opacity-100" : "opacity-0"
+        }`}
+      />
+      {/* Right fade hint */}
+      <div
+        className={`pointer-events-none absolute right-0 top-0 bottom-2 w-16 z-10 bg-gradient-to-l from-white to-transparent transition-opacity duration-300 ${
+          showRight ? "opacity-100" : "opacity-0"
+        }`}
+      />
+
+      <div
+        ref={ref}
+        className="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
+        {children}
+      </div>
     </div>
   );
 }
@@ -125,17 +163,14 @@ export default function ProjectGallery({ projects }: Props) {
             )}
 
             {/* Carousel */}
-            <div className="relative">
-              {/* Right fade hint */}
-              <div className="pointer-events-none absolute right-0 top-0 bottom-2 w-16 z-10 bg-gradient-to-l from-white to-transparent" />
-
+            <div>
               <ScrollableCarousel>
                 {project.images.map((img, idx) => (
                   <motion.button
                     key={idx}
                     onClick={() => openLightbox(project.id, idx)}
-                    className="snap-start shrink-0 group relative overflow-hidden bg-neutral-100"
-                    style={{ width: "clamp(220px, 28vw, 360px)", aspectRatio: "4/3" }}
+                    className="snap-start shrink-0 group relative overflow-hidden bg-neutral-100 flex items-center justify-center"
+                    style={{ width: "clamp(220px, 28vw, 360px)", height: "clamp(165px, 21vw, 270px)" }}
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >
@@ -144,12 +179,13 @@ export default function ProjectGallery({ projects }: Props) {
                       alt={img.alt}
                       fill
                       sizes="(max-width: 768px) 70vw, 30vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
+                      className="object-contain transition-transform duration-500 group-hover:scale-105"
+                      loading={idx === 0 ? "eager" : "lazy"}
+                      priority={idx === 0}
                     />
                     {/* Hover overlay */}
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-300 flex items-center justify-center">
-                      <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-white/90 rounded-full p-2">
+                      <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 rounded-full p-2">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#333" strokeWidth="2">
                           <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
                         </svg>
@@ -165,7 +201,6 @@ export default function ProjectGallery({ projects }: Props) {
                   {project.images.length} images · swipe or scroll to see more
                 </p>
               )}
-
             </div>
 
             {/* SpeakerDeck embed */}

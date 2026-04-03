@@ -46,9 +46,10 @@ export default function BackgroundsContent() {
         sizes="(max-width: 768px) 100vw, 80vw"
         className="w-full h-auto transition-transform duration-500 group-hover:scale-[1.02]"
         loading={globalIndex < 2 ? "eager" : "lazy"}
+        priority={globalIndex < 1}
       />
       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-300 flex items-center justify-center">
-        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-white/90 rounded-full p-2">
+        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 rounded-full p-2">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#333" strokeWidth="2">
             <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
           </svg>
@@ -72,7 +73,7 @@ export default function BackgroundsContent() {
 
         {/* Group 1: 3 images side by side */}
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-3 gap-3"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-4"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -85,7 +86,7 @@ export default function BackgroundsContent() {
 
         {/* Group 2: 2 images side by side */}
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 gap-3"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-4"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

@@ -51,7 +51,38 @@ body {
   background-color: rgba(255, 255, 255, 0.04);
 }
 
+/* Dark mode: inline style overrides */
+.dark .text-\[\#333333\],
+.dark .dark\:text-\[\#e5e5e5\] {
+  color: #e5e5e5;
+}
+
+.dark .bg-\[\#333333\] {
+  background-color: #e5e5e5;
+  color: #1a1a1a;
+}
+
+.dark .border-\[\#333333\] {
+  border-color: #e5e5e5;
+}
+
+.dark .hover\:bg-\[\#333333\]:hover {
+  background-color: #e5e5e5;
+  color: #1a1a1a;
+}
+
+.dark .hover\:bg-black:hover {
+  background-color: #333333;
+}
+
 /* Fade hint gradient in dark mode */
 .dark .from-white {
   --tw-gradient-from: #1a1a1a;
+}
+
+/* Global focus-visible for accessibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }

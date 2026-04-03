@@ -93,9 +93,10 @@ export default function Header() {
 
           {/* Hamburger */}
           <button
-            className="lg:hidden flex flex-col gap-[5px] p-1"
+            className="lg:hidden flex flex-col gap-[5px] p-3 -mr-2"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
+            aria-expanded={menuOpen}
           >
             <span
               className={`block w-5 h-[2px] bg-[#333333] transition-all duration-200 ${

@@ -37,7 +37,7 @@ export default function HeroSection() {
         animate="show"
         custom={0.25}
         variants={fade}
-        className="mt-6 text-sm font-[400] opacity-50 tracking-widest uppercase"
+        className="mt-8 text-sm font-[400] opacity-50 tracking-widest uppercase"
       >
         Storyboards — Vis Developer — Animator
       </motion.p>

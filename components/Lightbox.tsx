@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useCallback } from "react";
+import { useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -22,6 +22,7 @@ export default function Lightbox({ images, index, onClose, onNavigate, goTo }: P
   const total = images.length;
   const current = index ?? 0;
   const image = isOpen ? images[current] : null;
+  const containerRef = useRef<HTMLDivElement>(null);
 
   // Keyboard navigation
   useEffect(() => {
@@ -35,10 +36,44 @@ export default function Lightbox({ images, index, onClose, onNavigate, goTo }: P
     return () => window.removeEventListener("keydown", handleKey);
   }, [isOpen, onClose, onNavigate]);
 
-  // Lock scroll when open
+  // Lock scroll when open (both body and documentElement for iOS)
   useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    };
+  }, [isOpen]);
+
+  // Focus trap
+  useEffect(() => {
+    if (!isOpen || !containerRef.current) return;
+    const container = containerRef.current;
+    const focusableSelector = 'button, [href], [tabindex]:not([tabindex="-1"])';
+
+    const handleTab = (e: KeyboardEvent) => {
+      if (e.key !== "Tab") return;
+      const focusable = container.querySelectorAll<HTMLElement>(focusableSelector);
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
+    container.addEventListener("keydown", handleTab);
+    return () => container.removeEventListener("keydown", handleTab);
   }, [isOpen]);
 
   const stopProp = useCallback((e: React.MouseEvent) => e.stopPropagation(), []);
@@ -47,6 +82,7 @@ export default function Lightbox({ images, index, onClose, onNavigate, goTo }: P
     <AnimatePresence>
       {isOpen && image && (
         <motion.div
+          ref={containerRef}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -105,12 +141,18 @@ export default function Lightbox({ images, index, onClose, onNavigate, goTo }: P
                   key={i}
                   onClick={() => goTo(i)}
                   aria-label={`Go to image ${i + 1}`}
-                  className={`rounded-full transition-all duration-200 ${
+                  className={`rounded-full transition-all duration-200 p-2 ${
+                    i === current
+                      ? "bg-transparent"
+                      : "bg-transparent"
+                  }`}
+                >
+                  <span className={`block rounded-full transition-all duration-200 ${
                     i === current
                       ? "w-4 h-[3px] bg-white"
                       : "w-[3px] h-[3px] bg-white/35 hover:bg-white/70"
-                  }`}
-                />
+                  }`} />
+                </button>
               ))}
             </div>
           )}
