@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const EASE = [0.25, 0.1, 0.25, 1] as const;
@@ -14,11 +14,14 @@ export default function PageTransitionWrapper({
   const pathname = usePathname();
   const isFirstRender = useRef(true);
 
-  // Skip animation on initial page load to prevent flicker
-  if (isFirstRender.current) {
-    isFirstRender.current = false;
-    return <div key={pathname}>{children}</div>;
-  }
+  // Scroll to top on route change
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    window.scrollTo({ top: 0 });
+  }, [pathname]);
 
   return (
     <AnimatePresence mode="wait">

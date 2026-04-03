@@ -50,7 +50,7 @@ export default function ShowcaseGrid() {
               />
               {/* Label overlay */}
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-end">
-                <span className="translate-y-full group-hover:translate-y-0 transition-transform duration-300 w-full px-4 py-3 text-white text-[11px] font-[800] tracking-widest bg-black/50">
+                <span className="sm:translate-y-full group-hover:translate-y-0 transition-transform duration-300 w-full px-4 py-3 text-white text-[11px] font-[800] tracking-widest bg-black/50">
                   {item.label}
                 </span>
               </div>
